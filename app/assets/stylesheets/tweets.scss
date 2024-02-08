@@ -1,3 +1,151 @@
 // Place all the styles related to the tweets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// valiables
+$cBlack: black;
+$cWhite: white;
+
+// index
+.title {
+  text-align: center;
+  font-size: 48px;
+  margin: 30px;
+}
+
+#timeline {
+  padding: 20px;
+  // text-align: right;
+  & h1 {
+    text-align: center;
+  }
+}
+
+#timeline_body {
+  // padding: 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column-reverse;
+
+  & .tweet_container {
+    width: 100%;
+    border: 1px solid $cBlack;
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+
+    & .tweet_content {
+      width: 98%;
+      font-size: 15px;
+      padding: 5px;
+      word-break: break-all;
+
+      & p {
+        width: 100%;
+      }
+    }
+
+    & .tweet_content_footer {
+      display: flex;
+      justify-content: flex-end;
+      align-items: baseline;
+
+      & .post_time {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+//footer
+
+footer {
+  height: 150px;
+  color: $cWhite;
+
+  & p {
+    text-align: center;
+  }
+}
+.footer_nav {
+  & ul {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+
+    & li {
+      margin: 10px;
+
+      & a {
+        &:visited {
+          color: $cWhite;
+        }
+      }
+    }
+  }
+}
+
+// new
+.new_tweet_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  #error_explanation {
+    width: 450px;
+    border: 2px solid red;
+    padding: 7px 7px 0;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+
+    & h2 {
+      font-weight: bold;
+      padding: 5px 5px 5px 15px;
+      font-size: 18px;
+      margin: -7px -7px 0;
+      background-color: #c00;
+      color: #fff;
+    }
+    & ul li {
+      text-align: left;
+    }
+  }
+  .post_edit {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 80%;
+    align-items: center;
+
+    & .field {
+      display: flex;
+      flex-direction: column;
+
+      & textarea {
+        width: 27em;
+        height: 5.2em;
+      }
+    }
+
+    & .actions {
+      margin: 8px;
+    }
+  }
+}
+
+.btn_right {
+  text-align: right;
+}
+.btn_center {
+  text-align: center;
+  &.back{
+    margin: 10px;
+  }
+}
+
+#notice {
+  color: green; 
+  text-align: center;
+}

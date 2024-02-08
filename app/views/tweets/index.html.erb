@@ -1,27 +1,30 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Tweets</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<section id="timeline">
+  <h1>Timeline</h1>
+  <div class="btn_right">
+    <%= link_to 'New Tweet', new_tweet_path, {class: "btn btn-primary"} %>
+  </div>
+  <div id="timeline_body">
     <% @tweets.each do |tweet| %>
-      <tr>
-        <td><%= tweet.content %></td>
-        <td><%= link_to 'Show', tweet %></td>
-        <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
-        <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="tweet_container">
+        <div class="tweet_content">
+          <p><%= tweet.content %></p>
+        </div>
+        <div class="tweet_content_footer">
+          <div class="post_time">
+            <%= l tweet.created_at %>
+          </div>
+          <div class="btn-group">
+            <%= link_to edit_tweet_path(tweet), {class: "btn btn-primary"} do %>
+              <i class="bi bi-pencil-square"></i>
+            <% end %>
+            <%= link_to tweet, {method: :delete, data: { confirm: 'このつぶやきを削除しますか?' }, class: "btn btn-primary"} do %>
+              <i class="bi bi-trash3"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
+  </div>
+</section>
 <br>
-
-<%= link_to 'New Tweet', new_tweet_path %>
